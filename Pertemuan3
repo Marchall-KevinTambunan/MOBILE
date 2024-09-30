@@ -1,0 +1,103 @@
+package com.example.kartunama
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.kartunama.ui.theme.KartuNamaTheme
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            KartuNamaTheme {
+// Memanggil fungsi BusinessCard di dalam Scaffold
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    BusinessCard(modifier = Modifier.padding(innerPadding))
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun BusinessCard(modifier: Modifier = Modifier) {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        Image(
+            painter = painterResource(R.drawable.android_logo),
+            contentDescription = "Logo Android",
+            modifier = Modifier
+                .size(200.dp)
+                .padding(4.dp)
+        )
+        Text(
+            text = "Marchall Kevin Tambunan",
+            fontSize = 30.sp,
+            modifier = Modifier.padding(8.dp),
+            textAlign = TextAlign.Center
+        )
+        Text(
+            text = "Android Developer Extraordinaire",
+            fontSize = 18.sp,
+            color = Color.Black,
+            modifier = Modifier.padding(8.dp)
+        )
+        Spacer(modifier = Modifier.height(32.dp))
+        // Baris informasi kontak
+        ContactInfoRow(icon = R.drawable.phone, info = "0822343422")
+        ContactInfoRow(icon = R.drawable.twitter, info = "@AndroidDev")
+        ContactInfoRow(icon = R.drawable.email, info = "jen.doe@android.com")
+    }
+}
+
+@Composable
+fun ContactInfoRow(icon: Int, info: String) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+    ) {
+        Image(
+            painter = painterResource(icon),
+            contentDescription = null,
+            modifier = Modifier
+                .size(45.dp)
+                .padding(end = 16.dp)
+        )
+        Text(
+            text = info,
+            fontSize = 16.sp
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun BusinessCardPreview() {
+    BusinessCard()
+}
+//Column: Komponen ini digunakan untuk menyusun elemen secara vertikal
+// (logo, nama, deskripsi, dan kontak).
+//Image: Digunakan untuk menampilkan logo Android
+//Text: Menampilkan teks untuk nama, deskripsi, dan informasi kontak.
+//Row dalam ContactInfoRow: Setiap baris kontak (telepon, Twitter, email)
+// diatur secara horizontal, dengan ikon di kiri dan teks di kanan.
