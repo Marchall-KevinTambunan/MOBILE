@@ -79,7 +79,7 @@ fun DefaultPreview() {
         MainScreen()
     }
 }
-**Penjelasan**.
+//Penjelasan
 Pada MainActivity.
 Ini adalah kelas utama yang mewarisi dari ComponentActivity. Metode onCreate di sini adalah titik awal eksekusi aplikasi.
 setContent: Mengatur konten UI menggunakan Compose. FoodAppTheme adalah tema yang digunakan untuk membungkus komponen UI.
@@ -92,6 +92,7 @@ Text: Menampilkan teks yang bergantung pada status tombol.
 Button: Komponen untuk interaksi pengguna. Ketika diklik, akan mengubah status buttonClicked.
 @Preview:
 Digunakan untuk memberikan pratinjau tampilan dalam Android Studio, memudahkan saya melihat hasil tanpa menjalankan aplikasi di emulator.
+
 File Theme.kt
 
 package com.example.foodapp.ui.theme
@@ -146,7 +147,7 @@ val Shapes = Shapes(
     medium = RoundedCornerShape(8.dp),
     large = RoundedCornerShape(12.dp)
 )
-**Penjelasan.**
+//Penjelasan
 Shape.
 package: Menentukan package tempat file ini berada.
 import: Mengimpor kelas yang diperlukan dari Jetpack Compose.
