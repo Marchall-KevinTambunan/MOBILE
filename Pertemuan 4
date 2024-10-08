@@ -79,7 +79,7 @@ fun DefaultPreview() {
         MainScreen()
     }
 }
-<Penjelasan>
+(<Penjelasan>)
 Pada MainActivity.
 Ini adalah kelas utama yang mewarisi dari ComponentActivity. Metode onCreate di sini adalah titik awal eksekusi aplikasi.
 setContent: Mengatur konten UI menggunakan Compose. FoodAppTheme adalah tema yang digunakan untuk membungkus komponen UI.
